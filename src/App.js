@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React, { useEffect } from 'react'
+import UrlBox from './Components/UrlBox'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+const App = () => {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => {
+       document.body.style.overflow = 'auto'
+    }
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{backgroundImage:'url(/urlbg.png)'}} className='w-full h-screen flex justify-center items-center bg-cover'>
+      <UrlBox/>
+      <ToastContainer/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
